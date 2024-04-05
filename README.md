@@ -37,7 +37,7 @@ pip install rouge-score==0.1.2
 ```
 ## Baseline Model T5-3b
 Pytorch summarization task example is used as base code which is available at [Link](https://huggingface.co/docs/transformers/en/tasks/summarization), accessed on march 28, 2024. [This](https://medium.com/@hugo_fernandez/fine-tune-and-deploy-an-llm-on-google-colab-notebook-with-qlora-and-vertexai-58a838a63845) medium blog is also helpful for this tutorial.
-Encoder decoder based model is used in this tutorial (google-t5/t5-3b from huggingface) which is finetuned on the popular billsum dataset. BitsAndBytes package is used to apply quantization to the model which will significantly reduce the memory footprint of the model. PEFT library is utilized to apply LoRA adapters inside the layers of the frozen quantized model.
+Encoder decoder based model is used in this tutorial (google-t5/t5-3b from huggingface) which is finetuned on the popular billsum dataset. The BitsAndBytes package is used to apply quantization to the model which will significantly reduce the memory footprint of the model. PEFT library is utilized to apply LoRA adapters inside the layers of the frozen quantized model.
 
 ## Fine-tuning with QLoRA (Quantized Low-Rank Adaptation)
 In QLoRA, quantization is applied to reduce the memory footprint of the model. This technique involves converting the model's weights from a float32 format to a smaller one, typically 4 or 8 bits. Next, we freeze the quantized weights of the base model and perform backpropagation only on the weights of a lower-rank matrix that overlays the quantized base model.
