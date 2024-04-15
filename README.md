@@ -295,7 +295,7 @@ The following results are collected on a Tesla T4 GPU with 16 GB memory. The per
 :-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
 | Base_Model      | 11.4 | 1 | 2.9 | 2.9      | 100% |
 | Quantized Model      | 4.29 | 2.65 | 2.9 | 2.9      | 100% |
-| QloRA Model      | 4.29 | 2.65 | 2.9 | 0.056      | 1.94% |
+| QLoRA Model      | 4.29 | 2.65 | 2.9 | 0.056      | 1.94% |
 
 
 ## Conclusion
