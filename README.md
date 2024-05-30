@@ -314,3 +314,4 @@ In this tutorial, we utilized the QLoRA technique using BitsAndBytes and PEFT li
 ## References
 1.	Fine-tune and deploy an LLM on Google Colab Notebook with QLoRA and VertexAI Link: https://medium.com/@hugo_fernandez/fine-tune-and-deploy-an-llm-on-google-colab-notebook-with-qlora-and-vertexai-58a838a63845
 2.	Huggingface summarization task: https://huggingface.co/docs/transformers/en/tasks/summarization
+3.	Gradient Accumulation and Checkpointing Link: https://aman.ai/primers/ai/grad-accum-checkpoint/#overview
