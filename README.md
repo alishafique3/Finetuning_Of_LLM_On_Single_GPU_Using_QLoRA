@@ -297,6 +297,16 @@ The following results are collected on a Tesla T4 GPU with 16 GB memory. The per
 | Quantized Model      | 4.29 | 2.65 | 2.9 | 2.9      | 100% |
 | QLoRA Model      | 4.29 | 2.65 | 2.9 | 0.056      | 1.94% |
 
+## Other Single Device Memory Optimization Techniques:
+
+### Gradient Accumulation:
+Gradient accumulation is a technique used in training deep learning models where gradients are accumulated over multiple iterations before updating the model parameters. Instead of updating the model weights after processing each batch of data, gradients from several batches are summed together and applied to update the model parameters less frequently. This way, instead of storing the gradients for each batch separately and updating the model weights after each batch, the gradients are accumulated over several batches before the update step. Accumulating gradients over multiple mini-batches before updating can extend convergence time and prolong training duration. Yet, it proves beneficial when memory is limited.
+
+![gradient_accumulation](https://github.com/alishafique3/Distributed_Training_of_LLM_Using_DeepSpeed/assets/17300597/572125f5-6010-4ed3-9236-f885496894ee)
+
+### Gradient Checkpoint:
+Gradient checkpointing is a method used to balance memory usage and computation time while training neural networks. During backpropagation, we need to keep track of intermediate activation values. However, storing all these results, especially in models with many layers or limited memory, can be memory-intensive.
+Gradient checkpointing tackles this problem by selectively recomputing a subset of intermediate activations during backpropagation. Instead of storing every result, only the ones needed for calculating gradients are saved. The rest of the intermediate results are recalculated during the backward pass when required. This approach reduces memory usage by avoiding the storage of unnecessary results, even though it increases computation time.
 
 ## Conclusion
 In this tutorial, we utilized the QLoRA technique using BitsAndBytes and PEFT libraries to reduce memory usage during the training phase. Quantization led to a 2.65 times reduction in memory footprint, while LoRA froze the model and permitted 1.94% of parameters to be trained on the fine-tuning dataset. This setup allowed us to train large models like T5 with three billion parameters on a single GPU with 16GB memory. Such an approach will empower smaller organizations and individual developers to tailor LLMs for specific tasks.
